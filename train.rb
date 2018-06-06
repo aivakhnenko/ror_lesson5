@@ -7,8 +7,10 @@ class Train
   
   attr_reader :number, :railcars, :speed, :route, :station
 
+  @@all_trains = {}
+
   def self.find(number)
-    ObjectSpace.each_object(self).to_a.select { |train| train.number == number}.first
+    @@all_trains[number]
   end
 
   def initialize(number)
@@ -18,6 +20,7 @@ class Train
     @route = nil
     @station = nil
     register_instance
+    @@all_trains[number] = self
   end
 
   def type

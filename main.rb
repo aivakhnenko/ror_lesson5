@@ -88,7 +88,6 @@ class Main
     print "Enter station name: "
     station_name = gets.chomp
     stations << Station.new(station_name)
-    puts Station.instances
   end
   
   def add_train
@@ -101,9 +100,6 @@ class Main
     when "p" then trains << PassengerTrain.new(train_number)
     else puts "Wrong train type"
     end
-    puts Train.instances
-    puts CargoTrain.instances
-    puts PassengerTrain.instances
   end
 
   def add_route
@@ -116,7 +112,6 @@ class Main
         routes << Route.new(first_station, last_station)
       end
     end
-    puts Route.instances
   end
 
   def add_station_to_route
